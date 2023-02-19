@@ -15,7 +15,7 @@
 @section('content')
 <div class="row">
   <div class="col-12">
-    <a class="btn btn-success mb-2" href="">เพิ่มทริป</a>
+    <a class="btn btn-success mb-2" href="{{route('trips.create')}}">เพิ่มทริป</a>
   </div>
 </div>
 <!-- Basic table -->
