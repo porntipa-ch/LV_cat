@@ -18,7 +18,7 @@ use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\ClientVerifyController;
 use App\Http\Controllers\ClientDashboardController;
 use App\Http\Controllers\ClientRefinanceController;
-
+use App\Http\Controllers\TripController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,21 +31,17 @@ use App\Http\Controllers\ClientRefinanceController;
 */
 //->middleware('role:admin')
 // Main Page Route
+
 Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
 
+// Route::get('trips', [TripController::class, 'index']);
+Route::resource('trips',TripController::class);
 
-Route::group(['prefix' => 'client'], function () {
-    Route::get('verify', [ClientVerifyController::class, 'index'])->name('verify');
-    Route::post('postverify', [ClientVerifyController::class, 'store'])->name('postverify');
-    Route::get('dashboard', [ClientDashboardController::class, 'index'])->name('client-dashboard');
-    Route::get('refinance', [ClientRefinanceController::class, 'index'])->name('client-refinance');
-});
 
 // locale Route
 Route::get('lang/{locale}',[LanguageController::class,'swap']);
 
 
-Route::get('/products/{id}/price', [ClientRefinanceController::class, 'getPrice']);
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('analytics', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics');
