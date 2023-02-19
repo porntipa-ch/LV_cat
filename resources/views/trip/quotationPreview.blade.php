@@ -19,11 +19,13 @@
                     <div class="card-body invoice-padding pb-0">
                         <!-- Header starts -->
                         <div class="d-flex justify-content-between flex-md-row flex-column invoice-spacing mt-0">
-                            <div>
-                                <h3 class="card-text mb-25">ห้างหุ้นส่วนจำกัด นิลผกา</h3>
+                            <div class="row">
+                                <div class="col">
+                                    <h3 class="card-text mb-25">ห้างหุ้นส่วนจำกัด นิลผกา</h3>
                                 <p>49/175 ม.5 ต.หนองบัว อ.เมืองอุดรธานี จ.อุดรธานี 41000</p>
                                 <p>โทร. 063-2452369 E-mail : Chamapeet@gmail.com</p>
                                 <p><b>เลขประจำตัวผู้เสียภาษี</b>: 0413558001156</p>
+                                </div>
                             </div>
                         </div>
                         <!-- Header ends -->
@@ -35,24 +37,24 @@
                                 <h6>เลขประจำตัวผู้เสียภาษี TAX ID : </h6>
                             </div>
                             <div class="col-4 p-1">
-                               <div class="row">
-                                <div class="col-6">
-                                    <h6>เลขที่ / NO</h6>
-                                    <h6>วันที่ / DATE</h6>
-                                    <h6>อ้างอิง / REF.</h6>
-                                    <h6>พนักงานขาย / SALE</h6>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h6>เลขที่ / NO</h6>
+                                        <h6>วันที่ / DATE</h6>
+                                        <h6>อ้างอิง / REF.</h6>
+                                        <h6>พนักงานขาย / SALE</h6>
+                                    </div>
+                                    <div class="col-6">
+                                        <h6>: 0918518</h6>
+                                        <h6>: 27 ธ.ค. 2022</h6>
+                                        <h6>: AR_09185</h6>
+                                        <h6>: AKIRA</h6>
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <h6>: 0918518</h6>
-                                    <h6>: 27 ธ.ค. 2022</h6>
-                                    <h6>: AR_09185</h6>
-                                    <h6>: AKIRA</h6>
-                                </div>
-                               </div>
                             </div>
                         </div>
                         <div class="row mt-1">
-                            <table class="table table-bordered text-center">
+                            <table class="table-bordered text-center" style="border:solid 1px black">
                                 <thead>
                                     <th>NO.<br>ลำดับ</th>
                                     <th>DESCRIPTION<br>รายการ</th>
@@ -63,7 +65,8 @@
                                 <tbody>
                                     <tr>
                                         <td>1.</td>
-                                        <td>ค่าเช่าเหมารถทัวร์............................</td>
+                                        <td>ค่าเช่าเหมารถทัวร์xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        </td>
                                         <td>3 วัน</td>
                                         <td>18,000</td>
                                         <td>54,000</td>
@@ -75,8 +78,43 @@
                                         <td>รวมเป็นเงิน</td>
                                         <td>54,000 บาท</td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <p><span
+                                                    class="text-danger">*หมายเหตุ*</span>อัตราค่าบริการนี้ไม่รวมค่าใช้จ่ายที่เกิดขึ้นเพิ่มเติมนอกเหนือข้อตกลงที่คุยกันไว้
+                                                สามารถใช้คูปองส่วนลดเราเที่ยวด้วยกันได้ ราคานี้ไม่รวม VAT7%</p>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ตัวอักษร</td>
+                                        <td colspan="3">ห้าหมื่นสี่พันบาทถ้วน</td>
+                                        <td>54,000</td>
+                                    </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-6 text-center">
+                                <div class="row"style="border:solid 1px black">
+                                    <div class="col-12 m-2">
+                                        <p>.......................</p>
+                                        <p>(นาย พิษณุ บุญลี)</p>
+                                        <h6>Manager</h6>
+                                        <p>( DATE 27/12/2565 )</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 text-center">
+                                <div class="row" style="border:solid 1px black">
+                                    <div class="col-12 m-2">
+                                        <p>.......................</p>
+                                        <p>(.............................)</p>
+                                        <h6>Manager</h6>
+                                        <p>( DATE ...../...../.....)</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -93,8 +131,8 @@
                             Send Invoice
                         </button>
                         <button class="btn btn-outline-secondary w-100 btn-download-invoice mb-75">Download</button>
-                        <a class="btn btn-outline-secondary w-100 mb-75" href="{{ url('quatationPrint') }}"
-                            target="_blank"> Print </a>
+                        <a class="btn btn-outline-secondary w-100 mb-75" href="{{ url('quotationPrint') }}" target="_blank">
+                            Print </a>
                         <a class="btn btn-outline-secondary w-100 mb-75" href="{{ url('app/invoice/edit') }}"> Edit </a>
                         <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#add-payment-sidebar">
                             Add Payment
