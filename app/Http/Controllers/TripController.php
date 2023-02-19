@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Trip;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TripController extends Controller
 {
@@ -15,7 +16,7 @@ class TripController extends Controller
      */
     public function index()
     {
-        $trips = Trip::all();;
+        $trips = Trip::all();
         return view('trips.index')->with('tripView',$trips);
     }
 
@@ -26,7 +27,7 @@ class TripController extends Controller
      */
     public function create()
     {
-        //
+        return view('trip.formTrip');
     }
 
     /**
@@ -37,7 +38,35 @@ class TripController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $prepareTrip = [
+            'trip_name' => $request->trip_name,
+            'guide_name' => $request->guide_name,
+            'outbound_flight' => $request->outbound_flight,
+            'inbound_flight' => $request->inbound_flight,
+            'hotel' => $request->hotel,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'user_id' => Auth::id()
+        ];
+        $trip = Trip::create($prepareTrip);
+
+        $customers = Trip::orderBy('created_at', 'desc')->first();
+        // return view('trip.formCustomer', ['customers' => $customers]);
+        $id = $customers->id;
+
+        return redirect()->to('trip/addCustomer/'.$id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Trip  $trip
+     * @return \Illuminate\Http\Response
+     */
+    public function addCustomer($id)
+    {
+        $tripDetail = Trip::where('id',$id)->first();
+        return view('trip.formCustomer', ['tripDetail' => $tripDetail]);
     }
 
     /**
@@ -48,10 +77,7 @@ class TripController extends Controller
      */
     public function show(Trip $trip)
     {
-        // $trip = Customer::find($trip->id);
         $customers = Customer::where('trip_id',$trip->id)->get();
-        // $tripDetail = Trip::where('id',$trip->id)->first();
-        // return view('trips.show')->with('members',$trip);
         return view('trips.show', ['members' => $customers,'tripDetail' => $trip]);
     }
 
