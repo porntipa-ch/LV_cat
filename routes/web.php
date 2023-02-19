@@ -18,7 +18,7 @@ use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\ClientVerifyController;
 use App\Http\Controllers\ClientDashboardController;
 use App\Http\Controllers\ClientRefinanceController;
-
+use App\Http\Controllers\TestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +33,18 @@ use App\Http\Controllers\ClientRefinanceController;
 // Main Page Route
 Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
 
+//catflow
+Route::get('/test', [TestController::class, 'index'])->name('test');
+Route::get('/formTrip', [TestController::class, 'formTrip'])->name('formTrip');
+Route::get('/formCustomer', [TestController::class, 'formCustomer'])->name('formCustomer');
+Route::get('/billingPreview', [TestController::class, 'billingPreview'])->name('billingPreview');
+Route::get('/billingPrint', [TestController::class, 'billingPrint'])->name('billingPrint');
+Route::get('/invoicePreview', [TestController::class, 'invoicePreview'])->name('invoicePreview');
+Route::get('/invoicePrint', [TestController::class, 'invoicePrint'])->name('invoicePrint');
+Route::get('/quotationPreview', [TestController::class, 'quotationPreview'])->name('quotationPreview');
+Route::get('/quotationPrint', [TestController::class, 'quotationPrint'])->name('quotationPrint');
 
+//
 Route::group(['prefix' => 'client'], function () {
     Route::get('verify', [ClientVerifyController::class, 'index'])->name('verify');
     Route::post('postverify', [ClientVerifyController::class, 'store'])->name('postverify');
