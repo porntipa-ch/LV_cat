@@ -21,6 +21,9 @@ use App\Http\Controllers\ClientRefinanceController;
 use App\Http\Controllers\CustomerController;
 
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\QuotationController;
+use App\Http\Controllers\TestController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +47,8 @@ Route::resource('trips',TripController::class);
 Route::resource('customers',CustomerController::class);
 
 Route::get('/trips/addCustomer/{id}', [TripController::class,'addCustomer']);
+
+Route::get('/trips/addQuotation/{id}', [QuotationController::class,'addQuotation']);
 
 
 
