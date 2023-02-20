@@ -10,7 +10,7 @@
                     <span class="brand-logo">
                         <img src="{{asset('images/logo/logo.png')}}" alt="">
                     </span>
-                    <h2 class="brand-text">iFinn</h2>
+                    <h2 class="brand-text">Catflow</h2>
                 </a>
             </li>
             <li class="nav-item nav-toggle">
