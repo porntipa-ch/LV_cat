@@ -22,9 +22,9 @@
                             <div class="row">
                                 <div class="col">
                                     <h3 class="card-text mb-25">ห้างหุ้นส่วนจำกัด นิลผกา</h3>
-                                <p>49/175 ม.5 ต.หนองบัว อ.เมืองอุดรธานี จ.อุดรธานี 41000</p>
-                                <p>โทร. 063-2452369 E-mail : Chamapeet@gmail.com</p>
-                                <p><b>เลขประจำตัวผู้เสียภาษี</b>: 0413558001156</p>
+                                    <p>49/175 ม.5 ต.หนองบัว อ.เมืองอุดรธานี จ.อุดรธานี 41000</p>
+                                    <p>โทร. 063-2452369 E-mail : Chamapeet@gmail.com</p>
+                                    <p><b>เลขประจำตัวผู้เสียภาษี</b>: 0413558001156</p>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                                 <tbody>
                                     <tr>
                                         <td>1.</td>
-                                        <td>ค่าเช่าเหมารถทัวร์xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        <td>ค่าเช่าเหมารถทัวร์
                                         </td>
                                         <td>3 วัน</td>
                                         <td>18,000</td>
