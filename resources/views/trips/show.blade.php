@@ -46,9 +46,11 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 0 ?>
                             @foreach ($members as $item)
+                            <?php $i++ ?>
                                 <tr>
-                                    <td>{{ $item->id }}</td>
+                                    <td>{{$i}}</td>
                                     <td>{{ $item->fname . ' ' . $item->lname }}</td>
                                     <td>{{ $item->en_fname . ' ' . $item->en_lname }}</td>
                                     <td>{{ $item->passport_name }}</td>

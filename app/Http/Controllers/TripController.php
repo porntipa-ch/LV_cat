@@ -66,7 +66,8 @@ class TripController extends Controller
     public function addCustomer($id)
     {
         $tripDetail = Trip::where('id',$id)->first();
-        return view('trip.formCustomer', ['tripDetail' => $tripDetail]);
+        $tripMember = Customer::where('trip_id',$id)->get();
+        return view('trip.formCustomer', ['tripDetail' => $tripDetail,'tripMember' =>$tripMember]);
     }
 
     /**
