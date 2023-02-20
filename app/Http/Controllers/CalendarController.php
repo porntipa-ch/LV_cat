@@ -18,7 +18,22 @@ class CalendarController extends Controller
 
         return view('trip.calendar')->with('trips', $trips);
     }
+    public function getTrips()
+    {
+        $trips = Trip::all();
 
+        $data = array();
+
+        foreach ($trips as $trip) {
+            $data[] = array(
+                'title' => $trip->trip_name, // The name of the trip
+                'start' => $trip->start_date,
+                'end' => $trip->end_date,
+            );
+        }
+
+        return response()->json($data);
+    }
     /**
      * Show the form for creating a new resource.
      *
