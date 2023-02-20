@@ -32,17 +32,21 @@
               <th>วันทีจบ</th>
               <th>ชื่อไกด์</th>
               <th>จัดการ</th>
+              <th>เอกสาร</th>
             </tr>
           </thead>
           <tbody>
+            <?php $i = 0 ?>
             @foreach ($tripView as $item)
+            <?php $i++ ?>
               <tr>
-                <td>{{ $item->id }}</td>
+                <td>{{$i}}</td>
                 <td>{{ $item->trip_name }}</td>
                 <td>{{ $item->start_date }}</td>
                 <td>{{ $item->end_date }}</td>
                 <td>{{ $item->guide_name }}</td>
                 <td><a href="{{ route('trips.show',$item->id)}}">รายละเอียด</a></td>
+                <td><a href="trips/addQuotation/{{$item->id}}">ใบเสนอราคา</a></td>
               </tr>  
             @endforeach            
           </tbody>
