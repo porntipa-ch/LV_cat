@@ -18,7 +18,10 @@ use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\ClientVerifyController;
 use App\Http\Controllers\ClientDashboardController;
 use App\Http\Controllers\ClientRefinanceController;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\CustomerController;
+
+use App\Http\Controllers\TripController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,9 +34,19 @@ use App\Http\Controllers\TestController;
 */
 //->middleware('role:admin')
 // Main Page Route
+
 Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
 
-//catflow
+
+// Route::get('trips', [TripController::class, 'index']);
+Route::resource('trips',TripController::class);
+
+Route::resource('customers',CustomerController::class);
+
+Route::get('/trips/addCustomer/{id}', [TripController::class,'addCustomer']);
+
+
+
 Route::get('/test', [TestController::class, 'index'])->name('test');
 Route::get('/formTrip', [TestController::class, 'formTrip'])->name('formTrip');
 Route::get('/formCustomer', [TestController::class, 'formCustomer'])->name('formCustomer');
@@ -45,6 +58,16 @@ Route::get('/quotationPreview', [TestController::class, 'quotationPreview'])->na
 Route::get('/quotationPrint', [TestController::class, 'quotationPrint'])->name('quotationPrint');
 Route::get('/calendar', [TestController::class, 'calendar'])->name('calendar');
 
+// Route::get('/formTrip', [TestController::class, 'formTrip'])->name('formTrip');
+// Route::get('/formCustomer', [TestController::class, 'formCustomer'])->name('formCustomer');
+// Route::get('/billingPreview', [TestController::class, 'billingPreview'])->name('billingPreview');
+// Route::get('/billingPrint', [TestController::class, 'billingPrint'])->name('billingPrint');
+// Route::get('/invoicePreview', [TestController::class, 'invoicePreview'])->name('invoicePreview');
+// Route::get('/invoicePrint', [TestController::class, 'invoicePrint'])->name('invoicePrint');
+// Route::get('/quotationPreview', [TestController::class, 'quotationPreview'])->name('quotationPreview');
+// Route::get('/quotationPrint', [TestController::class, 'quotationPrint'])->name('quotationPrint');
+
+
 //
 Route::group(['prefix' => 'client'], function () {
     Route::get('verify', [ClientVerifyController::class, 'index'])->name('verify');
@@ -53,11 +76,11 @@ Route::group(['prefix' => 'client'], function () {
     Route::get('refinance', [ClientRefinanceController::class, 'index'])->name('client-refinance');
 });
 
+
 // locale Route
 Route::get('lang/{locale}',[LanguageController::class,'swap']);
 
 
-Route::get('/products/{id}/price', [ClientRefinanceController::class, 'getPrice']);
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('analytics', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics');

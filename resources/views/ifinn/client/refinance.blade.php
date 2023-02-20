@@ -90,7 +90,7 @@
                                         </g>
                                     </svg>
 
-                                    <h3 class="text-primary invoice-logo">iFinn</h3>
+                                    <h3 class="text-primary invoice-logo">Catflow</h3>
                                 </div>
                                 <p class="card-text mb-25">บริษัท ไอฟินน์ จำกัด (สำนักงานใหญ่)</p>
                                 <p class="card-text mb-25">ตำบลสำราญ อำเภอสามชัย จังหวัดกาฬสินธุ์ 46180</p>

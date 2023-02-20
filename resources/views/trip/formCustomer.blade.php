@@ -19,32 +19,32 @@
                             <h4 class="text-center mb-2">ข้อมูลทริป</h4>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">โปรแกรม : </span>
+                                    <span class="font-weight-bold">โปรแกรม : {{$tripDetail->trip_name}}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">โรงแรม : </span>
+                                    <span class="font-weight-bold">โรงแรม : {{$tripDetail->hotel}}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">วันเริ่มทริป : </span>
+                                    <span class="font-weight-bold">วันเริ่มทริป : {{$tripDetail->start_date}}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">วันจบทริป : </span>
+                                    <span class="font-weight-bold">วันจบทริป : {{$tripDetail->end_date}}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">เที่ยวบินขาไป : </span>
+                                    <span class="font-weight-bold">เที่ยวบินขาไป : {{$tripDetail->inbound_flight}}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">เที่ยวบินขากลับ : </span>
+                                    <span class="font-weight-bold">เที่ยวบินขากลับ : {{$tripDetail->outbound_flight}}</span>
                                 </p>
                             </div>
                             <hr>
@@ -64,13 +64,14 @@
                         </div>
 
                         <div class="border border-2 rounded p-1">
-                            <form class="form">
+                            <form class="form" action="{{ route('customers.store')}}" method="POST">
+                                <input type="text" value="{{$tripDetail->id}}" name="trip_id">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="prefix">คำนำหน้าชื่อ</label>
-                                            <select id="prefix" class="form-select">
-                                                <option selected>เลือกคำนำหน้า</option>
+                                            <select id="prefix" class="form-select" name="prefix">
+                                                <option selected hidden>เลือกคำนำหน้า</option>
                                                 <option>นาย</option>
                                                 <option>นาง</option>
                                                 <option>นางสาว</option>
@@ -108,7 +109,7 @@
                                     <div class="col-6">
                                         <div class="mb-1">
                                             <label class="form-label" for=".birthdate">วันเดือนปีเกิด</label>
-                                            <input type="date" id=".birthdate" class="form-control" name=".birthdate" />
+                                            <input type="date" id=".birthdate" class="form-control" name="birthdate" />
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -150,7 +151,7 @@
                                     <div class="col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="note">หมายเหตุ</label>
-                                            <textarea class="form-control" id="note" rows="3" placeholder="หมายเหตุ"></textarea>
+                                            <textarea class="form-control" id="note" rows="3" placeholder="หมายเหตุ" name="note"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +194,6 @@
                                             <td>22/211/2543</td>
                                             <td>251</td>
                                             <td>-</td>
-
                                           </tr>
                                         </tbody>
                                       </table>
@@ -204,7 +204,7 @@
                         </div>
                         <!-- Button -->
                         <div class="col-12 text-center mt-2">
-                            <a href="{{ route('formTrip') }}" class="btn btn-secondary me-1">กลับ</a>
+                            <a href="#" class="btn btn-secondary me-1">กลับ</a>
                             <button type="submit" class="btn btn-success me-1">ตกลง</button>
                         </div>
                     </div>
