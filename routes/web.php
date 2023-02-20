@@ -21,7 +21,13 @@ use App\Http\Controllers\ClientRefinanceController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TripController;
+
+use App\Http\Controllers\QuotationController;
+use App\Http\Controllers\TestController;
+
+
 use App\Http\Controllers\CalendarController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +53,8 @@ Route::resource('customers',CustomerController::class);
 Route::resource('calendar',CalendarController::class);
 
 Route::get('/trips/addCustomer/{id}', [TripController::class,'addCustomer']);
+
+Route::get('/trips/addQuotation/{id}', [QuotationController::class,'addQuotation']);
 
 
 

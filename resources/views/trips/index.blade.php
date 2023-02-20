@@ -32,6 +32,7 @@
               <th>วันทีจบ</th>
               <th>ชื่อไกด์</th>
               <th>จัดการ</th>
+              <th>เอกสาร</th>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +46,7 @@
                 <td>{{ $item->end_date }}</td>
                 <td>{{ $item->guide_name }}</td>
                 <td><a href="{{ route('trips.show',$item->id)}}">รายละเอียด</a></td>
+                <td><a href="trips/addQuotation/{{$item->id}}">ใบเสนอราคา</a></td>
               </tr>  
             @endforeach            
           </tbody>
