@@ -35,9 +35,11 @@
             </tr>
           </thead>
           <tbody>
+            <?php $i = 0 ?>
             @foreach ($tripView as $item)
+            <?php $i++ ?>
               <tr>
-                <td>{{ $item->id }}</td>
+                <td>{{$i}}</td>
                 <td>{{ $item->trip_name }}</td>
                 <td>{{ $item->start_date }}</td>
                 <td>{{ $item->end_date }}</td>

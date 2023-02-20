@@ -19,32 +19,33 @@
                             <h4 class="text-center mb-2">ข้อมูลทริป</h4>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">โปรแกรม : {{$tripDetail->trip_name}}</span>
+                                    <span class="font-weight-bold">โปรแกรม : {{ $tripDetail->trip_name }}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">โรงแรม : {{$tripDetail->hotel}}</span>
+                                    <span class="font-weight-bold">โรงแรม : {{ $tripDetail->hotel }}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">วันเริ่มทริป : {{$tripDetail->start_date}}</span>
+                                    <span class="font-weight-bold">วันเริ่มทริป : {{ $tripDetail->start_date }}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">วันจบทริป : {{$tripDetail->end_date}}</span>
+                                    <span class="font-weight-bold">วันจบทริป : {{ $tripDetail->end_date }}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">เที่ยวบินขาไป : {{$tripDetail->inbound_flight}}</span>
+                                    <span class="font-weight-bold">เที่ยวบินขาไป : {{ $tripDetail->inbound_flight }}</span>
                                 </p>
                             </div>
                             <div class="col-6">
                                 <p>
-                                    <span class="font-weight-bold">เที่ยวบินขากลับ : {{$tripDetail->outbound_flight}}</span>
+                                    <span class="font-weight-bold">เที่ยวบินขากลับ :
+                                        {{ $tripDetail->outbound_flight }}</span>
                                 </p>
                             </div>
                             <hr>
@@ -64,17 +65,18 @@
                         </div>
 
                         <div class="border border-2 rounded p-1">
-                            <form class="form" action="{{ route('customers.store')}}" method="POST">
-                                <input type="text" value="{{$tripDetail->id}}" name="trip_id">
+                            <form class="form" action="{{ route('customers.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{ $tripDetail->id }}" name="trip_id">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="mb-1">
                                             <label class="form-label" for="prefix">คำนำหน้าชื่อ</label>
                                             <select id="prefix" class="form-select" name="prefix">
                                                 <option selected hidden>เลือกคำนำหน้า</option>
-                                                <option>นาย</option>
-                                                <option>นาง</option>
-                                                <option>นางสาว</option>
+                                                <option value="นาย">นาย</option>
+                                                <option value="นาง">นาง</option>
+                                                <option value="นางสาว">นางสาว</option>
                                             </select>
                                         </div>
                                     </div>
@@ -164,43 +166,48 @@
                         <div class="row">
                             <div class="row" id="table-bordered">
                                 <div class="col-12">
-                                  <div class="card">
-                                    <div class="card-header">
-                                      <h4 class="card-title">รายชื่อลูกค้า</h4>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="card-title">รายชื่อลูกค้า</h4>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ลำดับ</th>
+                                                        <th>ชื่อภาษาไทย</th>
+                                                        <th>ชื่อภาษาอังกฤษ</th>
+                                                        <th>หมายเลขพาสปอร์ต/บัตรประชาชน</th>
+                                                        <th>วันที่ออก</th>
+                                                        <th>วันที่หมด</th>
+                                                        <th>ว/ด/ป เกิด</th>
+                                                        <th>ห้อง</th>
+                                                        <th>หมายเหตุ</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $i = 0 ?>
+                                                    @foreach ($tripMember as $item)
+                                                    <?php $i++ ?>
+                                                        <tr>
+                                                            <td>{{$i}}</td>
+                                                            <td>{{$item->fname." ".$item->lname}}</td>
+                                                            <td>{{$item->en_fname." ".$item->en_lname}}</td>
+                                                            <td>{{$item->passport_name}}</td>
+                                                            <td>{{$item->passport_start}}</td>
+                                                            <td>{{$item->passport_end}}</td>
+                                                            <td>{{$item->birthdate}}</td>
+                                                            <td>{{$item->room}}</td>
+                                                            <td>{{$item->note}}</td>
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                    <div class="table-responsive">
-                                      <table class="table table-bordered">
-                                        <thead>
-                                          <tr>
-                                            <th>ลำดับ</th>
-                                            <th>ชื่อภาษาไทย</th>
-                                            <th>ชื่อภาษาอังกฤษ</th>
-                                            <th>หมายเลขพาสปอร์ต/บัตรประชาชน</th>
-                                            <th>วันที่ออก</th>
-                                            <th>วันที่หมด</th>
-                                            <th>ว/ด/ป เกิด</th>
-                                            <th>ห้อง</th>
-                                            <th>หมายเหตุ</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>1</td>
-                                            <td>พรทิพา ชนะน้อย</td>
-                                            <td>Porntipa Chananoi</td>
-                                            <td>1234567897458</td>
-                                            <td>14/02/2545</td>
-                                            <td>52/03/2565</td>
-                                            <td>22/211/2543</td>
-                                            <td>251</td>
-                                            <td>-</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                  </div>
                                 </div>
-                              </div>
+                            </div>
                         </div>
                         <!-- Button -->
                         <div class="col-12 text-center mt-2">
