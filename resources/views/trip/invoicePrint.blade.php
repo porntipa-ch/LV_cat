@@ -1,6 +1,6 @@
 @extends('layouts/fullLayoutMaster')
 
-@section('title', 'Invoice Print')
+@section('title', 'ใบกำกับภาษี')
 
 @section('page-style')
     <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-invoice-print.css')) }}">

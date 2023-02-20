@@ -16,7 +16,7 @@ class TestController extends Controller
         return view('/trip/index');
     }
 
-        /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -26,7 +26,7 @@ class TestController extends Controller
         return view('/trip/formTrip');
     }
 
-            /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -36,7 +36,7 @@ class TestController extends Controller
         return view('/trip/formCustomer');
     }
 
-                /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -47,7 +47,7 @@ class TestController extends Controller
     }
 
 
-                /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -57,7 +57,7 @@ class TestController extends Controller
         return view('/trip/invoicePrint');
     }
 
-                /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -67,7 +67,7 @@ class TestController extends Controller
         return view('/trip/quotationPreview');
     }
 
-                    /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -77,7 +77,7 @@ class TestController extends Controller
         return view('/trip/quotationPrint');
     }
 
-                    /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -88,7 +88,7 @@ class TestController extends Controller
     }
 
 
-                    /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -96,6 +96,17 @@ class TestController extends Controller
     public function billingPrint()
     {
         return view('/trip/billingPrint');
+    }
+
+
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function calendar()
+    {
+        return view('/trip/calendar');
     }
 
     /**

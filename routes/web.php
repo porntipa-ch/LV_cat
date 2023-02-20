@@ -43,6 +43,7 @@ Route::get('/invoicePreview', [TestController::class, 'invoicePreview'])->name('
 Route::get('/invoicePrint', [TestController::class, 'invoicePrint'])->name('invoicePrint');
 Route::get('/quotationPreview', [TestController::class, 'quotationPreview'])->name('quotationPreview');
 Route::get('/quotationPrint', [TestController::class, 'quotationPrint'])->name('quotationPrint');
+Route::get('/calendar', [TestController::class, 'calendar'])->name('calendar');
 
 //
 Route::group(['prefix' => 'client'], function () {
