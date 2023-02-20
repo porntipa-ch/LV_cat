@@ -43,7 +43,7 @@ Route::resource('trips',TripController::class);
 
 Route::resource('customers',CustomerController::class);
 
-Route::get('/trip/addCustomer/{id}', [TripController::class,'addCustomer']);
+Route::get('/trips/addCustomer/{id}', [TripController::class,'addCustomer']);
 
 
 //catflow
