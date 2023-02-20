@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
@@ -35,7 +36,22 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $prepareProduct = [
+            'prefix' => $request->prefix,
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'en_fname' => $request->en_fname,
+            'en_lname' => $request->en_lname,
+            'birthdate' => $request->birthdate,
+            'birthdate_location' => $request->birthdate_location,
+            'passport_name' => $request->passport_name,
+            'passport_start' => $request->passport_start,
+            'passport_end' => $request->passport_end,
+            'room' => $request->room,
+            'note' => $request->note,
+            'user_id'=> Auth::id()
+        ];
+        $product = Customer::create($prepareProduct);
     }
 
     /**

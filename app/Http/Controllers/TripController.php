@@ -54,7 +54,7 @@ class TripController extends Controller
         // return view('trip.formCustomer', ['customers' => $customers]);
         $id = $customers->id;
 
-        return redirect()->to('trip/addCustomer/'.$id);
+        return redirect()->to('trips/addCustomer/'.$id);
     }
 
     /**
