@@ -19,8 +19,9 @@ use App\Http\Controllers\ClientVerifyController;
 use App\Http\Controllers\ClientDashboardController;
 use App\Http\Controllers\ClientRefinanceController;
 use App\Http\Controllers\CustomerController;
-
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,8 @@ Route::resource('trips',TripController::class);
 
 Route::resource('customers',CustomerController::class);
 
+Route::resource('calendar',CalendarController::class);
+
 Route::get('/trips/addCustomer/{id}', [TripController::class,'addCustomer']);
 
 
@@ -56,7 +59,6 @@ Route::get('/invoicePreview', [TestController::class, 'invoicePreview'])->name('
 Route::get('/invoicePrint', [TestController::class, 'invoicePrint'])->name('invoicePrint');
 Route::get('/quotationPreview', [TestController::class, 'quotationPreview'])->name('quotationPreview');
 Route::get('/quotationPrint', [TestController::class, 'quotationPrint'])->name('quotationPrint');
-Route::get('/calendar', [TestController::class, 'calendar'])->name('calendar');
 
 // Route::get('/formTrip', [TestController::class, 'formTrip'])->name('formTrip');
 // Route::get('/formCustomer', [TestController::class, 'formCustomer'])->name('formCustomer');
