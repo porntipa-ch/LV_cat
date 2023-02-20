@@ -10,7 +10,10 @@
         "production": "mix --production"
     },
     "dependencies": {
-        "bootstrap": "~5.1.0"
+        "@fullcalendar/core": "^6.1.4",
+        "@fullcalendar/daygrid": "^6.1.4",
+        "bootstrap": "~5.1.0",
+        "fullcalendar": "^3.4.0"
     },
     "devDependencies": {
         "axios": "^0.25",

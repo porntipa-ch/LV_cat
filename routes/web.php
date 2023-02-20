@@ -51,6 +51,7 @@ Route::resource('trips',TripController::class);
 Route::resource('customers',CustomerController::class);
 
 Route::resource('calendar',CalendarController::class);
+Route::get('/tripsData', [CalendarController::class, 'getTrips']);
 
 Route::get('/trips/addCustomer/{id}', [TripController::class,'addCustomer']);
 
