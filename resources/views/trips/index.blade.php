@@ -51,6 +51,9 @@
                                                     class="btn btn-success">รายละเอียด</a>
                                             </div>
                                             <div class="col">
+                                              <a class="btn btn-warning" href="{{ route('trips.edit', $item->id) }} ">แก้ไข</a>
+                                            </div>
+                                            <div class="col">
                                                 <form action="{{ route('trips.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
