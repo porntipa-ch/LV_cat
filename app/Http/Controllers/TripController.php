@@ -113,6 +113,9 @@ class TripController extends Controller
      */
     public function destroy(Trip $trip)
     {
-        //
+        $tripInst = Trip::find($trip->id);
+        $tripInst->delete( );
+
+        return redirect()->route('trips.index');
     }
 }
