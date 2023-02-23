@@ -186,19 +186,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $i = 0 ?>
+                                                    <?php $i = 0; ?>
                                                     @foreach ($tripMember as $item)
-                                                    <?php $i++ ?>
+                                                        <?php $i++; ?>
                                                         <tr>
-                                                            <td>{{$i}}</td>
-                                                            <td>{{$item->fname." ".$item->lname}}</td>
-                                                            <td>{{$item->en_fname." ".$item->en_lname}}</td>
-                                                            <td>{{$item->passport_name}}</td>
-                                                            <td>{{$item->passport_start}}</td>
-                                                            <td>{{$item->passport_end}}</td>
-                                                            <td>{{$item->birthdate}}</td>
-                                                            <td>{{$item->room}}</td>
-                                                            <td>{{$item->note}}</td>
+                                                            <td>{{ $i }}</td>
+                                                            <td>{{ $item->fname . ' ' . $item->lname }}</td>
+                                                            <td>{{ $item->en_fname . ' ' . $item->en_lname }}</td>
+                                                            <td>{{ $item->passport_name }}</td>
+                                                            <td>{{ $item->passport_start }}</td>
+                                                            <td>{{ $item->passport_end }}</td>
+                                                            <td>{{ $item->birthdate }}</td>
+                                                            <td>{{ $item->room }}</td>
+                                                            <td>{{ $item->note }}</td>
                                                         </tr>
                                                     @endforeach
 

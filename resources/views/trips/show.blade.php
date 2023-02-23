@@ -43,14 +43,15 @@
                                 <th>วันเกิด</th>
                                 <th>ห้อง</th>
                                 <th>หมายเหตุ</th>
+                                <th>จัดการ</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i = 0 ?>
+                            <?php $i = 0; ?>
                             @foreach ($members as $item)
-                            <?php $i++ ?>
+                                <?php $i++; ?>
                                 <tr>
-                                    <td>{{$i}}</td>
+                                    <td>{{ $i }}</td>
                                     <td>{{ $item->fname . ' ' . $item->lname }}</td>
                                     <td>{{ $item->en_fname . ' ' . $item->en_lname }}</td>
                                     <td>{{ $item->passport_name }}</td>
@@ -59,6 +60,17 @@
                                     <td>{{ $item->birthdate }}</td>
                                     <td>{{ $item->room }}</td>
                                     <td>{{ $item->note }}</td>
+                                    <td>
+                                        <div class="col">
+                                            <form action="{{ route('customers.destroy', $item->id) }}" method="post">
+                                                @csrf
+                                                {{ method_field('delete')}}
+                                                <input type="hidden" name="trip_id" value="{{ $item->trip_id }}">
+                                                <input type="hidden" name="form" value="formShow">
+                                                <button type="submit" class="btn btn-danger">ลบ</button>
+                                            </form>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
 
