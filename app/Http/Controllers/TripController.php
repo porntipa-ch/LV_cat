@@ -90,7 +90,7 @@ class TripController extends Controller
      */
     public function edit(Trip $trip)
     {
-        //
+        return view('trips.editTrip')->with('trip',$trip);
     }
 
     /**
@@ -102,7 +102,19 @@ class TripController extends Controller
      */
     public function update(Request $request, Trip $trip)
     {
-        //
+        $prepareTrip = [
+            'trip_name' => $request->trip_name,
+            'guide_name' => $request->guide_name,
+            'outbound_flight' => $request->outbound_flight,
+            'inbound_flight' => $request->inbound_flight,
+            'hotel' => $request->hotel,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'user_id' => Auth::id()
+        ];
+        $tripInst = Trip::find($trip->id);
+        $tripInst->update($prepareTrip);
+        return redirect()->route('trips.index');
     }
 
     /**
@@ -113,6 +125,9 @@ class TripController extends Controller
      */
     public function destroy(Trip $trip)
     {
-        //
+        $tripInst = Trip::find($trip->id);
+        $tripInst->delete( );
+
+        return redirect()->route('trips.index');
     }
 }
