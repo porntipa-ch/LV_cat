@@ -54,7 +54,7 @@ class CustomerController extends Controller
             'user_id'=> Auth::id()
         ];
         $addCustomer = Customer::create($prepareCustomer);
-        $tripMember = Trip::where('trip_id',$request->id)->get();
+        $tripMember = Trip::where('id',$request->id)->get();
         return redirect()->to('trips/addCustomer/'.$request->trip_id)->with('tripMember',$tripMember);
     }
 
@@ -100,6 +100,9 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $tripInst = Customer::find($customer->id);
+        $tripInst->delete( );
+
+        return redirect()->to('trips/'.$customer->trip_id);
     }
 }

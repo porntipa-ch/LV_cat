@@ -54,7 +54,7 @@
                                               <a class="btn btn-warning" href="{{ route('trips.edit', $item->id) }} ">แก้ไข</a>
                                             </div>
                                             <div class="col">
-                                                <form action="{{ route('trips.destroy', $item->id) }}" method="POST">
+                                                <form action="{{ route('customers.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">ลบ</button>
