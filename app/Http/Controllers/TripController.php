@@ -16,7 +16,8 @@ class TripController extends Controller
      */
     public function index()
     {
-        $trips = Trip::all();
+
+        $trips = Trip::where('user_id',Auth::id())->get();
         return view('trips.index')->with('tripView',$trips);
     }
 
@@ -50,9 +51,9 @@ class TripController extends Controller
         ];
         $trip = Trip::create($prepareTrip);
 
-        $customers = Trip::orderBy('created_at', 'desc')->first();
+        $tripid = Trip::orderBy('created_at', 'desc')->first();
         // return view('trip.formCustomer', ['customers' => $customers]);
-        $id = $customers->id;
+        $id = $tripid->id;
 
         return redirect()->to('trips/addCustomer/'.$id);
     }

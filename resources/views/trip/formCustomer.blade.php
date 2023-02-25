@@ -50,7 +50,7 @@
                             </div>
                             <hr>
                         </div>
-                        <div class="row mb-2 mt-1">
+                       {{--  <div class="row mb-2 mt-1">
                             <div class="col-10">
                                 <input type="text" class="form-control"
                                     placeholder="ค้นหาหมายเลขพาสปอร์ต/หมายเลขบัตรประชาชน" />
@@ -62,7 +62,7 @@
                         <div class="row">
                             <p class="text-warning">พรทิพา ชนะน้อย <button type="submit"
                                     class="btn btn-primary">เพิ่มลูกค้า</button></p>
-                        </div>
+                        </div> --}}
 
                         <div class="border border-2 rounded p-1">
                             <form class="form" action="{{ route('customers.store') }}" method="POST">

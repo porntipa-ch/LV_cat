@@ -42,20 +42,20 @@ use App\Http\Controllers\CalendarController;
 //->middleware('role:admin')
 // Main Page Route
 
-Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
+Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce')->middleware('auth');
 
 
 // Route::get('trips', [TripController::class, 'index']);
-Route::resource('trips',TripController::class);
+Route::resource('trips',TripController::class)->middleware('auth');
 
-Route::resource('customers',CustomerController::class);
+Route::resource('customers',CustomerController::class)->middleware('auth');
 
-Route::resource('calendar',CalendarController::class);
-Route::get('/tripsData', [CalendarController::class, 'getTrips']);
+Route::resource('calendar',CalendarController::class)->middleware('auth');
+Route::get('/tripsData', [CalendarController::class, 'getTrips'])->middleware('auth');
 
-Route::get('/trips/addCustomer/{id}', [TripController::class,'addCustomer']);
+Route::get('/trips/addCustomer/{id}', [TripController::class,'addCustomer'])->middleware('auth');
 
-Route::get('/trips/addQuotation/{id}', [QuotationController::class,'addQuotation']);
+Route::get('/trips/addQuotation/{id}', [QuotationController::class,'addQuotation'])->middleware('auth');
 
 
 
@@ -70,26 +70,6 @@ Route::get('/invoicePrint', [TestController::class, 'invoicePrint'])->name('invo
 Route::get('/quotationPreview', [TestController::class, 'quotationPreview'])->name('quotationPreview');
 Route::get('/quotationPrint', [TestController::class, 'quotationPrint'])->name('quotationPrint');
 
-// Route::get('/test', [TestController::class, 'index'])->name('test');
-// Route::get('/formTrip', [TestController::class, 'formTrip'])->name('formTrip');
-// Route::get('/formCustomer', [TestController::class, 'formCustomer'])->name('formCustomer');
-// Route::get('/billingPreview', [TestController::class, 'billingPreview'])->name('billingPreview');
-// Route::get('/billingPrint', [TestController::class, 'billingPrint'])->name('billingPrint');
-// Route::get('/invoicePreview', [TestController::class, 'invoicePreview'])->name('invoicePreview');
-// Route::get('/invoicePrint', [TestController::class, 'invoicePrint'])->name('invoicePrint');
-// Route::get('/quotationPreview', [TestController::class, 'quotationPreview'])->name('quotationPreview');
-// Route::get('/quotationPrint', [TestController::class, 'quotationPrint'])->name('quotationPrint');
-// Route::get('/calendar', [TestController::class, 'calendar'])->name('calendar');
-
-
-// Route::get('/formTrip', [TestController::class, 'formTrip'])->name('formTrip');
-// Route::get('/formCustomer', [TestController::class, 'formCustomer'])->name('formCustomer');
-// Route::get('/billingPreview', [TestController::class, 'billingPreview'])->name('billingPreview');
-// Route::get('/billingPrint', [TestController::class, 'billingPrint'])->name('billingPrint');
-// Route::get('/invoicePreview', [TestController::class, 'invoicePreview'])->name('invoicePreview');
-// Route::get('/invoicePrint', [TestController::class, 'invoicePrint'])->name('invoicePrint');
-// Route::get('/quotationPreview', [TestController::class, 'quotationPreview'])->name('quotationPreview');
-// Route::get('/quotationPrint', [TestController::class, 'quotationPrint'])->name('quotationPrint');
 
 
 //
@@ -107,8 +87,8 @@ Route::get('lang/{locale}',[LanguageController::class,'swap']);
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
-    Route::get('analytics', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics');
-    Route::get('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
+    Route::get('analytics', [DashboardController::class, 'dashboardAnalytics'])->name('dashboard-analytics')->middleware('auth');
+    Route::get('ecommerce', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce')->middleware('auth');
 });
 /* Route Dashboards */
 

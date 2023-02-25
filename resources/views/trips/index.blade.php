@@ -45,22 +45,32 @@
                                     <td>{{ $item->end_date }}</td>
                                     <td>{{ $item->guide_name }}</td>
                                     <td>
-                                        <div class="row">
-                                            <div class="col">
-                                                <a href="{{ route('trips.show', $item->id) }}"
-                                                    class="btn btn-success">รายละเอียด</a>
-                                            </div>
-                                            <div class="col">
-                                              <a class="btn btn-warning" href="{{ route('trips.edit', $item->id) }} ">แก้ไข</a>
-                                            </div>
-                                            <div class="col">
-                                                <form action="{{ route('customers.destroy', $item->id) }}" method="POST">
+
+                                        <div class="btn-group">
+                                            <a href="{{ route('trips.show', $item->id) }}" type="button"
+                                                class="btn btn-primary">รายละเอียด</a>
+                                            <button type="button"
+                                                class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                <span class="visually-hidden">Toggle Dropdown</span>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item"
+                                                    href="{{ route('trips.edit', $item->id) }}">แก้ไข</a>
+                                                    <a class="dropdown-item"
+                                                    href="trips/addCustomer/{{$item->id}}">จัดการลูกค้า</a>
+                                                <form action="{{ route('trips.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">ลบ</button>
+                                                    <button type="submit" class="dropdown-item">ลบ</button>
                                                 </form>
+
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Separated link</a>
                                             </div>
                                         </div>
+
+
                                     </td>
                                     <td><a href="trips/addQuotation/{{ $item->id }}">ใบเสนอราคา</a></td>
                                 </tr>
@@ -85,11 +95,11 @@
             <script src="{{ asset(mix('vendors/js/tables/datatable/pdfmake.min.js')) }}"></script>
             <script src="{{ asset(mix('vendors/js/tables/datatable/vfs_fonts.js')) }}"></script>
             <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.html5.min.js')) }}"></script>
-            <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.print.min.js')) }}"></script>
-            <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.rowGroup.min.js')) }}"></script>
-            <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+            <script src="{{ asset(mix('vendors/js/tables/datatable/jquery.dataTables.min.js')) }}"></script>
+            <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.bootstrap5.min.js')) }}"></script>
+            <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.responsive.min.js')) }}"></script>
         @endsection
         @section('page-script')
             {{-- Page js files --}}
-            <script src="{{ asset(mix('js/scripts/tables/table-datatables-basic.js')) }}"></script>
+            <script src="{{ asset(mix('vendors/js/tables/datatable/responsive.bootstrap5.min.js')) }}"></script>
         @endsection

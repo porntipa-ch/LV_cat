@@ -1,7 +1,12 @@
 <?php
 
 return [
+    "catflowmenu" => "ระบบจัดการธุรกิจท่องเที่ยว",
     "refinance" => "กู้",
+    "trip" => "จัดการทริปเที่ยว",
+    "calendar" => "ปฏิทิน",
+    "document" => "เอกสาร",
+    "setting" => "ตั้งค่าบัญชี",
     "Apps & Pages" => "Apps & Pages",
     "User Interface" => "User Interface",
     "Dashboards" => "Dashboards",
